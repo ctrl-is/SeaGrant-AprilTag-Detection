@@ -5,6 +5,13 @@
 
 
 int main() {
+    // starts by creating a dictionary of the different AprilTags under a specfic type
+    // creats a function to open a serial connection to a device at a given baud rate
+    // a function is there to let us know if there happens to be an error when writing to the serial port
+    // a function is there to let us know if the camera is malfunctioning as well 
+    // a while loop is created that draws the detected markers on the frame and sends the detected ID over serial port to the arduino
+    // once the apriltag leaves the camera's vision, it sends a "NONE" message to the arduino and the terminal tells us that nothing has been detected
+
     std::cout << "PROGRAM START\n";
     auto dict = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_APRILTAG_36h11);
 
