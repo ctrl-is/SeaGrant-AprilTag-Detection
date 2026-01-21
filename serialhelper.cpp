@@ -14,7 +14,7 @@ int openSerial(const char* device, int baud) {
         return -1;
     }
 
-    // Put into blocking mode after open (simplifies writes)
+    // Put into blocking mode after open
     int flags = fcntl(fd, F_GETFL, 0);
     fcntl(fd, F_SETFL, flags & ~O_NONBLOCK);
 
@@ -36,11 +36,10 @@ int openSerial(const char* device, int baud) {
     // No software flow control
     tty.c_iflag &= ~(IXON | IXOFF | IXANY);
 
-    // Read timeouts (not super important if you're mostly writing)
     tty.c_cc[VMIN]  = 0;
     tty.c_cc[VTIME] = 5; // 0.5s
 
-    speed_t speed = B115200; // you asked for 115200
+    speed_t speed = B115200;
     cfsetispeed(&tty, speed);
     cfsetospeed(&tty, speed);
 
