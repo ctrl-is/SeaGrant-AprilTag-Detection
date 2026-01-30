@@ -15,7 +15,7 @@ int main() {
     std::cout << "PROGRAM START\n";
     auto dict = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_APRILTAG_36h11);
 
-    int fd = openSerial("/dev/cu.usbmodem40517814832", 115200);
+    int fd = openSerial("/dev/cu.usbmodemXXXXXX", 115200);
 
     if (fd < 0) {
     std::cerr << "Serial open failed\n";
